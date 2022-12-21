@@ -94,14 +94,45 @@ console.log("Precio raqueta Yonex: " + raquetaYonex);
 
 // Acá tenemos armado un array que lo llamamos 'productos'
 const productos= [
-    {id:1, nombre: "Remera nike blue", precio: 8000},
-    {id:2, nombre: "Pantalon adidas white summer", precio: 7000},
-    {id:3, nombre: "Short adidas white summer", precio: 6000},
-    {id:4, nombre: "Zapatillas nike black winter", precio: 45000},
-    {id:5, nombre: "Medias yonex red summer", precio: 3500},
-    {id:6, nombre: "Campera nike rafa nadal signature", precio: 60000},
-    {id:7, nombre: "Gorra babolat white summer", precio: 15000},
+    {id:1, nombre: "Remera Nike Blue", precio: 8000},
+    {id:2, nombre: "Pantalon Nike white Summer", precio: 7000},
+    {id:3, nombre: "Short Nike white Summer", precio: 6000},
+    {id:4, nombre: "Zapatillas Nike Black Winter", precio: 45000},
+    {id:5, nombre: "Medias Nike Red summer", precio: 3500},
+    {id:6, nombre: "Campera Nike Rafa Nadal Signature", precio: 60000},
+    {id:7, nombre: "Gorra Nike White Summer", precio: 15000},
+    {id:8, nombre: "Remera Adidas Green", precio: 8500},
+    {id:9, nombre: "Pantalon Adidas Brown Autumn", precio: 7500},
+    {id:10, nombre: "Short Adidas Orange Label", precio: 6500},
+    {id:11, nombre: "Zapatillas Adidas Black Spring All Court", precio: 47000},
+    {id:12, nombre: "Medias Adidas Yellow Field", precio: 4500},
+    {id:13, nombre: "Campera Adidas Andy Murray Signature", precio: 55000},
+    {id:14, nombre: "Gorra Adidas champion Signature", precio: 12000},
+    {id:15, nombre: "Remera Yonex Grey", precio: 5500},
+    {id:16, nombre: "Pantalon Yonex Australian Open Championship", precio: 6800},
+    {id:17, nombre: "Short Yonex Masters Series Summer", precio: 5800},
+    {id:18, nombre: "Zapatillas Yonex Golden Championship", precio: 35000},
+    {id:19, nombre: "Medias Yonex Pink Summer", precio: 3200},
+    {id:20, nombre: "Campera Yonex David Nalbandian signature", precio: 45000},
+    {id:21, nombre: "Gorra Yonex white Signature summer", precio: 12500},
+    {id:22, nombre: "Remera Uniqlo blue", precio: 9500},
+    {id:23, nombre: "Pantalon Uniqlo White Summer", precio: 9800},
+    {id:24, nombre: "Short Uniqlo White Summer", precio: 10800},
+    {id:25, nombre: "Zapatillas Uniqlo Perfection Signature Series Winter", precio: 55000},
+    {id:26, nombre: "Medias Uniqlo Red Summer", precio: 5200},
+    {id:27, nombre: "Campera Uniqlo Roger Federer Signature", precio: 125000},
+    {id:28, nombre: "Gorra Uniqlo White Summer", precio: 17500},
+    {id:22, nombre: "Remera Prince blue", precio: 9500},
+    {id:23, nombre: "Pantalon Prince White Summer", precio: 9800},
+    {id:24, nombre: "Short Prince White Summer", precio: 10800},
+    {id:25, nombre: "Zapatillas Prince black winter", precio: 55000},
+    {id:26, nombre: "Medias Prince Red Summer", precio: 5200},
+    {id:27, nombre: "Campera Prince Gael Monfils Signature", precio: 125000},
+    {id:28, nombre: "Gorra Prince Signature Spring", precio: 17500},
   ];
+
+
+
   
 
   // METODOS DE BUSQUEDA:
@@ -115,7 +146,7 @@ const productos= [
 
   // METODO FIND:
   const camperas = productos.find((el)=>{
-    return el.nombre === "Campera nike rafa nadal signature"
+    return el.nombre === "Campera Nike Rafa Nadal Signature"
   })
   console.log(camperas);
 
@@ -144,10 +175,10 @@ const productos= [
 
 
 
-  // Ahora voy a corroborar si existe el elemento "Remera nike blue" en mi lista de productos,  del array "productos".
+  // Ahora voy a corroborar si existe el elemento "Short Yonex Masters Series Summer" en mi lista de productos,  del array "productos".
 
   const existeremera= productos.some((el)=>{
-    return el.nombre == "Remera nike blue"
+    return el.nombre == "Short Yonex Masters Series Summer"
   })
 
   console.log(existeremera); // Si existe, por lo tanto, resultado en la consola del navegador es true.
@@ -157,7 +188,7 @@ const productos= [
 // Ahora voy a agregar 3 productos nuevos al final de mi array "productos".
 
 productos.push({
-    id:8,
+    id:29,
     nombre:"Raqueta Babolat pure drive team",
     precio:90000,
 })
@@ -165,7 +196,7 @@ console.log(productos);
 
 
 productos.push({
-    id:9,
+    id:30,
     nombre:"Raqueta Babolat Aero Drive",
     precio:95000,
 })
@@ -173,7 +204,7 @@ console.log(productos);
 
 
 productos.push({
-    id:10,
+    id:31,
     nombre:"Raqueta Head 360 MP Extreme",
     precio:99000,
 })
@@ -183,6 +214,23 @@ console.log(productos);
 
 
 // METODO MAP:
+// Ahora voy a hacer una copia de mi array 'productos' y lo voy a llamar 'nuevoArrayProductos'
+
+const nuevoArrayProductos= productos.map((el)=>{
+    return {
+        id: el.id,
+        nombre: el.nombre,
+        precio: el.precio,
+    }
+})
+
+console.log(nuevoArrayProductos);
+
+// METODO SORT:
+// Ahora voy a ordenar la lista de los productos de mi nuevo array 'nuevoArrayProductos' de mayor a menor precio.
+nuevoArrayProductos.sort((a,b)=> b.precio - a.precio)
+console.log(nuevoArrayProductos); 
+
 // Ahora voy a hacer una copia de mi array, pero con los precios aumentados en un 40% 
 
 const precioActualizado= productos.map((el)=>{
@@ -201,7 +249,7 @@ const precioActualizado= productos.map((el)=>{
 // METODO SPLICE:
 // Vamos a sacar todos los elementos de nuestro nuevo array raquetas, y solamente vamos a dejar los ultimos 3 productos que agregamos a nuestro array originalmente.
 
-precioActualizado.splice(0,7)
+precioActualizado.splice(0,35)
 console.log(precioActualizado);
 
 
